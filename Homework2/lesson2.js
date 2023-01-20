@@ -1,31 +1,25 @@
-//1. Є такий код:
+// task 1
 
 let x = 1;
 let y = 2;
 
-let res1 = String(x) + String(y); // Допишіть код, необхідно використовувати змінні x і y
-console.log(res1); // "12"
-console.log(typeof res1); // "string"
+let res1 = String(x) + String(y);
+console.log(res1); 
+console.log(typeof res1); 
 
-let res2 = String(Boolean(x < y)) + String(y); // Допишіть код, необхідно використовувати змінні x і y
-console.log(res2); // "true2"
-console.log(typeof res2); // "string"
+let res2 = String(Boolean(x < y)) + String(y);
+console.log(res2); 
+console.log(typeof res2); 
 
-let res3 = x < y; // Допишіть код, необхідно використовувати змінні x і y
-console.log(res3); // true
-console.log(typeof res3); // "boolean"
+let res3 = x < y; 
+console.log(res3); 
+console.log(typeof res3);
 
-let res4 = typeof x / y; // Допишіть код, необхідно використовувати змінні x і y
-console.log(res4); // NaN
-console.log(typeof res4); // "number"
+let res4 = typeof x / y;
+console.log(res4);
+console.log(typeof res4); 
 
-/*Допишіть код, щоб в консолі браузера з'явилися рядки, які написані в коментарях, оперуючи при цьому змінними х і у.
-
-
-2. Користувач вводить число (використовуйте prompt ()). Необхідно перевірити чи є введене число
-	a) парним додатним;
-	b) кратним числу 7.
-Результат перевірки вивести в консоль.*/
+// task 2
 
 let n = +prompt("Enter your number: ");
 if ( n > 0 && n % 2 === 0) {
@@ -55,11 +49,11 @@ array[1] = "string";
 array[2] = true;
 array[3] = null;
 // console.log(array);
-alert(`The number of elements in the array: ${array.length}`);
+alert(`Array has ${array.length} elements`);
 array[4] = +prompt("Enter any value: ");
 alert(array[4]);
 array.shift(0);
-alert(array);
+alert(array.shift());
 console.log(array);
 
 

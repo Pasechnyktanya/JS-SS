@@ -74,10 +74,10 @@ alert(
   `An hour contains ${secInHour} seconds, a day contains ${secInDay} seconds, a month contains ${secInMounth} seconds.`
 );
 
-     // or
-const SecInHour = 60 ** 2;
-alert(`An hour contains ${SecInHour} seconds.`);
-const SecInDay = SecInHour * 24;
-alert(`A day contains ${SecInDay} seconds.`);
-const SecInMounth = SecInDay * 30;
-alert(`A month contains ${SecInMounth} seconds.`);
+// or
+const sec_InHour = 60 ** 2;
+alert(`An hour contains ${sec_InHour} seconds.`);
+const sec_InDay = sec_InHour * 24;
+alert(`A day contains ${sec_InDay} seconds.`);
+const sec_InMounth = sec_InDay * 30;
+alert(`A month contains ${sec_InMounth} seconds.`);
