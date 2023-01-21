@@ -42,7 +42,7 @@ array[2] = true;
 array[3] = null;
 // console.log(array);
 alert(`Array has ${array.length} elements.`);
-array[4] = +prompt("Enter any value:", "0");
+array[4] = prompt("Enter any value:", "0");
 alert(`You have entered ${array[4]}.`);
 array.shift();
 alert(array);
@@ -78,15 +78,19 @@ if (a < b + c && b < a + c && c < a + b) {
   console.log("Incorrect data!!!");
 }
 // - right triangle?
-console.log(
-  a ** 2 === b ** 2 + c ** 2 ||
-    b ** 2 === c ** 2 + a ** 2 ||
-    c ** 2 === a ** 2 + b ** 2
-    ? "It is a right triangle."
-    : "It is not a right triangle."
-);
+if (area > 0) {
+  console.log(
+    a ** 2 === b ** 2 + c ** 2 ||
+      b ** 2 === c ** 2 + a ** 2 ||
+      c ** 2 === a ** 2 + b ** 2
+      ? "It is a right triangle."
+      : "It is not a right triangle."
+  );
+} else {
+  console.log("Incorrect data!!!");
+}
 
-//  7 
+//  7
 
 let currentHour = new Date();
 let hour = currentHour.getHours();
