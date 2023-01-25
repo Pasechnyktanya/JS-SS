@@ -97,7 +97,7 @@ let hour = currentHour.getHours();
 
 // 1 version
 switch (true) {
-  case hour < 5 && hour > 22:
+  case hour < 5 || hour > 22:
     alert(" Good night!");
     break;
   case hour >= 5 && hour < 11:
@@ -114,7 +114,7 @@ switch (true) {
 }
 // 2 version
 alert(
-  hour < 5 && hour > 22
+  hour < 5 || hour > 22
     ? " Good night!"
     : hour >= 5 && hour < 11
     ? " Good morning!"
