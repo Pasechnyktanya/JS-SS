@@ -26,26 +26,24 @@ try {
 //   task   2
 
 function checkAge() {
-  let age = +prompt("Enter your age:", "");
-  if (!Number.isNaN(age) && age >= 14) {
-    alert("You can watch this move.");
-  } else if (age === 0) {
-    alert("You havent entered your age! Retry again");
-    checkAge();
-  } else if (age < 14) {
-    alert("Your age is less than 14 years. You can not watch this move!!!");
-    throw new RangeError("Age is less than 14 years");
-  } else {
-    throw new TypeError("Incorrectly entered data");
+  try {
+    let age = +prompt("Enter your age:", "");
+    if (Number.isNaN(age)) {
+      throw new Error("Incorrectly entered data");
+    } else if (age == "") {
+      throw new Error("The field is empty! Piease enter your age");
+    } else if (age < 14) {
+      throw new Error(
+        "Your age is less than 14 years. You can not watch this move!!!"
+      );
+    } else {
+      alert("You can watch this movie, enjoy watching the movie.");
+    }
+  } catch (error) {
+    alert(`${error.name}: ${error.message}`);
   }
 }
-try {
-  checkAge();
-} catch (error) {
-  console.log(error.name);
-  console.log(error.message);
-  console.log(error.stack);
-}
+checkAge();
 
 //   task  3
 
@@ -81,20 +79,29 @@ function showMonthName() {
 
 console.log(showMonthName());
 
-// 4. Реалізуйте функцію showUser(id), яка приймає параметром користувацьке id і повертає об’єкт,
-// який містить значення переданої id. Також функція викидає помилку у разі якщо введено від’ємне id.
-// 	Реалізуйте функцію showUsers(ids), яка приймає параметром масив користувацьких айді ids, перевіряє
-// з використанням функції showUser() кожен елемент масиву ids на коректність, в разі виключної ситуації виводить
-//  повідомлення про помилку. Функція showUsers(ids) повертає масив об’єктів, де значеннями ключів є коректні елементи ids.
+//  task  4
 
-// 	Приклад роботи програми:
-// showUsers([7, -12, 44, 22]);
-// Error: ID must not be negative: -12
-// [ {id: 7}, {id: 44}, {id: 22} ]
-// function showUser(id) {
-//   const obj = new Object();
-//   let obj.id = +prompt("Enter ID:", "");
-//   if(id > 0) {
-//     return id;
-//   }
-//
+function showUser(id) {
+  if (id < 0) {
+    throw new Error(`Incorrectly entered ID: ${id}`);
+  } else {
+    return { id: id };
+  }
+}
+
+function showUsers(ids) {
+  const correctId = [];
+  let id;
+  for (let count = 0; count < ids.length; count++) {
+    id = ids[count];
+    try {
+      showUser(id);
+      correctId.push(id);
+    } catch (error) {
+      console.log(error.name);
+      console.log(error.message);
+    }
+  }
+  return correctId;
+}
+console.log(showUsers([7, -12, 44, -15, 14, -3, 22]));
