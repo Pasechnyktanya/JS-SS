@@ -20,6 +20,7 @@ try {
 } catch (error) {
   console.log(error.name);
   console.log(error.message);
+  console.log(error.stack);
 }
 
 //   task   2
@@ -93,6 +94,15 @@ function showMonthName() {
 }
 
 console.log(showMonthName());
+
+   // short function
+
+function showMonthNameShort() {
+  let month = +prompt("Enter number of month:", "");
+  const arrMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Nuvember", "Dacember"];
+  return month > 0 && month <= 12 ? arrMonths(month - 1) : showMessage.func();
+  }
+console.log(showMonthNameShort());
 
 // 4. Реалізуйте функцію showUser(id), яка приймає параметром користувацьке id і повертає об’єкт,
 // який містить значення переданої id. Також функція викидає помилку у разі якщо введено від’ємне id.
