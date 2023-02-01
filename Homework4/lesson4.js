@@ -46,105 +46,54 @@ try {
   console.log(error.stack);
 }
 
-// if (typeof Error === "RangeError") {
-//   console.log(Error.message);
-//   alert("Your age is less than 14 years.");
-// } else if (typeof Error === "TypeError") {
-//   console.log(Error.message);
-//   alert("You have entered incorrect value!!");
-//   try {
-//     checkAge();
-//   } catch (e) {
-//     if (e instanceof EvalError) {
-//       console.error(`${e.name}: ${e.message}`);
-//     } else if (e instanceof RangeError) {
-//       console.error(`${e.name}: ${e.message}`);
-//     } else {
-//       throw e;
-//     }
-//   }
-//   if (Number.isNaN(age)) {
-//     alert("You have entered incorrect value!!");
-//     checkAge();
-//   } else if (age < 14) {
-//     alert("Your age is less than 14 years.");
-//   } else if ((age = undefined)) {
-//     alert("The field is empty! Please enter your age");
-//   } else {
-//     alert("You can see this move.");
-//     return age;
-//   }
-// }
-// try {
-//   let access = checkAge();
-//   console.log(access);
-// } catch (error) {
-//   if (error.name === "TypeError") console.log("Incorred value!!!");
-//   console.log(error.message);
-// }
-// 3. Створіть клас MonthException, конструктор якого приймає параметр message і ініціалізує поле name значенням 'MonthException'.
-// Реалізуйте функцію showMonthName(month), в якій параметр month – це порядковий номер місяця в році.
-// Функція повертає назву місяця відповідно до введеного номера місяця. У випадку некоректного вводу кидається ексепшн
-// у вигляді об’єкта класу MonthException з повідомленням 'Incorrect month number'.
-// Напишіть код, який використовує цю функцію, передбачте обробку можливих винятків.
-// Приклад роботи програми:
-// > console.log(showMonthName(5));
-// May
-// > console.log(showMonthName(14));
-// // MonthException Incorrect month number
 
-// class MonthException {
-//   constructor(message) {
-//     this.name = message;
-//     return this.name;
-//   }
-// // }
-//  new
-// function showMonthName(month) {
-// let month = +prompt("Enter number of month:", "")
-//   switch (month) {
-//     case 1:
-//       month = "January";
-//       break;
-//     case 2:
-//       month = "February";
-//       break;
-//     case 3:
-//       month = " March";
-//       break;
-//     case 4:
-//       month = "April";
-//       break;
-//     case 5:
-//       month = "May";
-//       break;
-//     case 6:
-//       month = "June";
-//       break;
-//     case 7:
-//       month = "July";
-//       break;
-//     case 8:
-//       month = "August";
-//       break;
-//     case 9:
-//       month = "September";
-//       break;
-//     case 10:
-//       month = "October";
-//       break;
-//     case 11:
-//       month = "Nuvember";
-//       break;
-//     case 12:
-//       month = "Dacember";
-//       break;
-//     default:
-//      throw new Error("ERROR");
-//   } console.log
-// }
-// console.log(showMonthName(2));
-//console.log(showMonthName(15));
+//   task  3  
+
+class MonthException {
+  constructor(message) {
+    this.name = "MonthException";
+    this.message = message;
+  }
+  func() {
+    console.log(`${this.name} ${this.message}`);
+  }
+}
+const showMessage = new MonthException("Incorrect month number");
+
+function showMonthName() {
+  let month = +prompt("Enter number of month:", "");
+  switch (month) {
+    case 1:
+      return "January";
+    case 2:
+      return "February";
+    case 3:
+      return " March";
+    case 4:
+      return "April";
+    case 5:
+      return "May";
+    case 6:
+      return "June";
+    case 7:
+      return "July";
+    case 8:
+      return "August";
+    case 9:
+      return "September";
+    case 10:
+      return "October";
+    case 11:
+      return "Nuvember";
+    case 12:
+      return "Dacember";
+    default:
+      return showMessage.func();
+  }
+}
+
+console.log(showMonthName());
+
 // 4. Реалізуйте функцію showUser(id), яка приймає параметром користувацьке id і повертає об’єкт,
 // який містить значення переданої id. Також функція викидає помилку у разі якщо введено від’ємне id.
 // 	Реалізуйте функцію showUsers(ids), яка приймає параметром масив користувацьких айді ids, перевіряє
