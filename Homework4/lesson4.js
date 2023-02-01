@@ -47,8 +47,7 @@ try {
   console.log(error.stack);
 }
 
-
-//   task  3  
+//   task  3
 
 class MonthException {
   constructor(message) {
@@ -63,46 +62,24 @@ const showMessage = new MonthException("Incorrect month number");
 
 function showMonthName() {
   let month = +prompt("Enter number of month:", "");
-  switch (month) {
-    case 1:
-      return "January";
-    case 2:
-      return "February";
-    case 3:
-      return " March";
-    case 4:
-      return "April";
-    case 5:
-      return "May";
-    case 6:
-      return "June";
-    case 7:
-      return "July";
-    case 8:
-      return "August";
-    case 9:
-      return "September";
-    case 10:
-      return "October";
-    case 11:
-      return "Nuvember";
-    case 12:
-      return "Dacember";
-    default:
-      return showMessage.func();
-  }
+  const arrMonths = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "Nuvember",
+    "Dacember",
+  ];
+  return month > 0 && month <= 12 ? arrMonths[month - 1] : showMessage.func();
 }
 
 console.log(showMonthName());
-
-   // short function
-
-function showMonthNameShort() {
-  let month = +prompt("Enter number of month:", "");
-  const arrMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Nuvember", "Dacember"];
-  return month > 0 && month <= 12 ? arrMonths(month - 1) : showMessage.func();
-  }
-console.log(showMonthNameShort());
 
 // 4. Реалізуйте функцію showUser(id), яка приймає параметром користувацьке id і повертає об’єкт,
 // який містить значення переданої id. Також функція викидає помилку у разі якщо введено від’ємне id.
