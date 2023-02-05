@@ -41,7 +41,7 @@ class Person {
     this.name = name;
     this.surname = surname;
   }
-  showFuuiName() {
+  showFullName() {
     return `${this.name} ${this.surname}`;
   }
 }
