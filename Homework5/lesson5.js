@@ -65,9 +65,6 @@ console.log(stud1.showFullName("Petrovych"));
 console.log("Current course: " + stud1.showCourse());
 
 //    task  4
-// 	5) Створити кілька екземплярів класу (працівників) з різними зарплатами, як показано в прикладі нижче.
-// Посортувати зарплату працівників із найбільшим experience по зростанню і вивести результат в форматі:   worker_fullName: salary_value
-// 	6) Реалізувати динамічне сортування для будь-кої кількості працівників-екземплярів класу Worker.
 
 class Worker {
   #experience = 1.2;
@@ -97,7 +94,7 @@ console.log("New experience: " + worker1.showExp);
 console.log("New salary (1.2): " + worker1.showSalaryWithExperience());
 worker1.showExp = 1.5;
 console.log("New experience: " + worker1.showExp);
-console.log("New salary(1.5): " + worker1.showSalaryWithExperience());
+console.log("New salary (1.5): " + worker1.showSalaryWithExperience());
 
 const worker2 = new Worker("Tom Tomson", 48, 22);
 console.log(worker2.fullName);
@@ -106,7 +103,7 @@ console.log("New experience: " + worker2.showExp);
 console.log("New salary (1.2): " + worker2.showSalaryWithExperience());
 worker2.showExp = 1.5;
 console.log("New experience: " + worker2.showExp);
-console.log("New salary(1.5): " + worker2.showSalaryWithExperience());
+console.log("New salary (1.5): " + worker2.showSalaryWithExperience());
 
 const worker3 = new Worker("Andy Ander", 29, 23);
 console.log(worker3.fullName);
@@ -115,19 +112,29 @@ console.log("New experience: " + worker3.showExp);
 console.log("New salary (1.2): " + worker3.showSalaryWithExperience());
 worker3.showExp = 1.5;
 console.log("New experience: " + worker3.showExp);
-console.log("New salary(1.5): " + worker3.showSalaryWithExperience());
+console.log("New salary (1.5): " + worker3.showSalaryWithExperience());
 
 const arrWorker = [worker1, worker2, worker3];
-console.log(arrWorker);
-//  доробити const sortedSalary = arrWorker.sort(
-//     (w1, w2) => (w1.showSalaryWithExperience() < w2.showSalaryWithExperience())
-//     ? 1 : (w1.showSalaryWithExperience() > w2.showSalaryWithExperience()) ? -1 : 0);
+const sortedSalary = (arr) =>
+  arr.sort((a, b) =>
+    a.showSalaryWithExperience() > b.showSalaryWithExperience()
+      ? 1
+      : a.showSalaryWithExperience() < b.showSalaryWithExperience()
+      ? -1
+      : 0
+  );
 
-// console.log(sortedSalary);
-// Sorted salary:
-// John Johnson: 690
-// Andy Ander: 1000.5
-// Tom Tomson: 1584
+console.log(sortedSalary(arrWorker));
+console.log("Sorted salary:");
+console.log(
+  `${arrWorker[0].fullName}: ${arrWorker[0].showSalaryWithExperience()}`
+); // John Johnson: 690
+console.log(
+  `${arrWorker[1].fullName}: ${arrWorker[1].showSalaryWithExperience()}`
+); // Andy Ander: 1000.5
+console.log(
+  `${arrWorker[2].fullName}: ${arrWorker[2].showSalaryWithExperience()}`
+); // Tom Tomson: 1584
 
 //    task   5
 
