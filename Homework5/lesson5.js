@@ -115,14 +115,10 @@ console.log("New experience: " + worker3.showExp);
 console.log("New salary (1.5): " + worker3.showSalaryWithExperience());
 
 const arrWorker = [worker1, worker2, worker3];
+
 const sortedSalary = (arr) =>
   arr.sort((a, b) =>
-    a.showSalaryWithExperience() > b.showSalaryWithExperience()
-      ? 1
-      : a.showSalaryWithExperience() < b.showSalaryWithExperience()
-      ? -1
-      : 0
-  );
+    a.showSalaryWithExperience() - b.showSalaryWithExperience());
 
 console.log(sortedSalary(arrWorker));
 console.log("Sorted salary:");
