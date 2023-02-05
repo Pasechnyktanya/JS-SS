@@ -143,7 +143,7 @@ class GeometricFigure {
     return 0;
   }
   toString() {
-    return 0;
+    return this.constructor.name;
   }
 }
 //
