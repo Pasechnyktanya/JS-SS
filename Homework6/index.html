@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework6</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--  task 1 -->
+    <!--1-->
+    <div id="test">First</div>
+    <script>
+      document.querySelector("div").innerHTML = "Last";
+    </script>
+    <!--2-->
+    <div id="tests">First</div>
+    <script>
+      document.getElementById("tests").innerHTML = "Last";
+    </script>
+
+    <!--  task 2 -->
+    <img class="image" src="dog.jpg" alt="dog" />
+    <script>
+      function change() {
+        document.getElementsByClassName("image").src = "cat.jpg";
+      }
+      alert(document.getElementsByClassName("image").src);
+    </script>
+
+    <!--  task 3 -->
+    <h2>Article header</h2>
+    <div id="text2">
+      <p>First paragraph</p>
+      <p>Second paragraph</p>
+      <p>Third paragraph</p>
+    </div>
+    <p>Another text</p>
+    <script>
+      let arrPrg = document.getElementById("text2").querySelectorAll("p");
+      for (let i = 0; i < arrPrg.length; i++) {
+        alert(`Selector text ${i}: ${arrPrg[i].innerHTML}`);
+      }
+    </script>
+
+    <!--  task  4 -->
+    <!--1-->
+    <ul id="list">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+    <script>
+      let listnum = document.getElementById("list").children;
+      alert(listnum[0].innerHTML);
+      alert(listnum[4].innerHTML);
+      alert(listnum[1].innerHTML);
+      alert(listnum[3].innerHTML);
+      alert(listnum[2].innerHTML);
+    </script>
+    <!--2-->
+    <ul id="list2">
+      <li>10</li>
+      <li>20</li>
+      <li>30</li>
+      <li>40</li>
+      <li>50</li>
+    </ul>
+    <script>
+      alert(document.getElementById("list2").firstElementChild.innerHTML);
+      alert(document.getElementById("list2").lastElementChild.innerHTML);
+      alert(
+        document.getElementById("list2").firstElementChild.nextElementSibling
+          .innerHTML
+      );
+      alert(
+        document.getElementById("list2").lastElementChild.previousElementSibling
+          .innerHTML
+      );
+      alert(document.getElementById("list2").children[2].innerHTML);
+    </script>
+
+    <!--  task  5 -->
+    <h1>I'am a big header!!!</h1>
+    <div id="myDiv">
+      <p>First paragraph</p>
+      <p>Second paragraph</p>
+      <p>Third paragraph</p>
+      <p>Fourth paragraph</p>
+    </div>
+    <ul id="myList">
+      <li>Make</li>
+      <li>me</li>
+      <li>horizontal!</li>
+    </ul>
+    <span>Make me invisible, please!</span>
+    <script>
+      document.querySelector("h1").style.background = "hsl(144, 73%, 58%)";
+      let mDiv = document.getElementById("myDiv").querySelectorAll("p");
+      mDiv[0].style.fontWeight = "700";
+      mDiv[1].style.color = "red";
+      mDiv[2].style.textDecoration = "underline";
+      mDiv[3].style.fontStyle = "italic";
+      document.getElementById("myList").style.display = "none";
+      document.getElementById("myList").nextElementSibling.innerHTML =
+        "Makemeinvisibleplease!";
+    </script>
+
+    <!--  task  6 -->
+    <!-- 2)	Поміняти значення 1-го і 2-го інпутів місцями.  ще це лишилось
+       -->
+
+    <input type="text" id="input1" value="Text1" />
+    <input type="text" id="input2" value="Text2" />
+    <script>
+      document.getElementById("input1").value = prompt(
+        "My first message: ",
+        ""
+      );
+      document.getElementById("input2").value = prompt(
+        "My second message: ",
+        ""
+      );
+    </script>
+
+    <!--  task  7 -->
+    <!--Напишіть скріпт, який за допомогою засобів DOM створить для порожньої HTML-сторінки таку структуру з тегів і їх атрибутів.
+	  	
+ -->
+
+    <!-- <main class="mainClass check item">
+      <div id="myDiv2">
+        <p>First paragraph</p>
+      </div>
+    </main> -->
+
+    <!-- <script>
+      let main = document.body.lastElementChild.insertAdjacentHTML(
+        "afterend",
+        "<main></main>"
+      );
+      main.insertAdjacentHTML("afterbegin", "<div></div>");
+      main.className = "mainClass check item";
+     
+      main.div.id = "myDiv2";
+      let p1 = document.createElement("p");
+      myDiv2.prepend(p1);
+      p1.innerHTML = "First paragraph";
+    </script>
+    <script src="lesson6.js"></script> -->
+  </body>
+</html>
