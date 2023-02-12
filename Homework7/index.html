@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework7</title>
+  </head>
+  <body>
+    <!-- task  1 -->
+    <!-- task  2 -->
+
+    <p id="text">I learning JavaScript events!</p>
+    <div>
+      <button id="chanCSS" onclick="changeCSS()">Change style!</button>
+    </div>
+    <script>
+      function changeCSS() {
+        document.getElementById("text").style.cssText =
+          "color: orange; font-size: 20px; font-family: Comic Sans MS";
+      }
+    </script>
+
+    <!-- task  3 -->
+
+    <!--1-->
+    <div id="group" style="height: 30px">
+      <button id="blueBtn">I will be blue</button>
+      <script>
+        const changeColorBlue = () =>
+          (document.body.style.backgroundColor = "blue");
+        document.getElementById("blueBtn").onclick = changeColorBlue;
+      </script>
+      <!--2-->
+      <button id="roseBtn">I will be rose</button>
+      <script>
+        const changeColorRose = () =>
+          (document.body.style.backgroundColor = "hotPink");
+        document.getElementById("roseBtn").ondblclick = changeColorRose;
+      </script>
+      <!--3-->
+      <button id="brownBtn" onmousedown="changeColorBrown()">
+        I will be brown/white
+      </button>
+      <script>
+        const changeColorBrown = () =>
+          (document.body.style.backgroundColor = "brown");
+        const changeColorWhite = () =>
+          (document.body.style.backgroundColor = "white");
+        brownBtn.addEventListener("mouseup", changeColorWhite);
+      </script>
+      <!--4-->
+      <a href="#" id="yellowLink">I will be yellow/white</a>
+      <script>
+        yellowLink.addEventListener("mouseover", (e) => {
+          group.style.backgroundColor = "yellow";
+        });
+        yellowLink.addEventListener("mouseout", (e) => {
+          group.style.backgroundColor = "white";
+        });
+      </script>
+    </div>
+
+    <!--  task  4. Реалізуйте програму, яка по натисканню на кнопку видалятиме обраний елемент випадаючого списку. 
+  Можуть видалятися всі елементи в будь-якому порядку.-->
+    <div id="exsFour">
+      <select id="groupDel">
+        <option>Sunday</option>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+      </select>
+      <button id="list">Choose and Delete</button>
+      <!-- <script>
+        const optDel = document.getElementById("groupDel").children.onclick;
+        const delOpt = () =>
+          (document.getElementById("groupDel").children.onclick);
+        document.getElementById("list").onclick = delOpt;
+      </script> -->
+    </div>
+
+    <!--  task  5  -->
+    <button id="livBtn" onclick="pressMes()">Live Button</button>
+    <script>
+      const pressMes = () =>
+        document
+          .getElementById("livBtn")
+          .insertAdjacentHTML("afterend", "<p>I was pressed!</p>");
+      yellowLink.addEventListener("mouseover", (e) => {
+        group.style.backgroundColor = "yellow";
+      });
+      yellowLink.addEventListener("mouseout", (e) => {
+        group.style.backgroundColor = "white";
+      });
+      document.getElementById("livBtn").addEventListener("mouseover", (e) => {
+        document
+          .getElementById("livBtn")
+          .insertAdjacentHTML("afterend", "<p>Mouse on me!</p>");
+      });
+      document.getElementById("livBtn").addEventListener("mouseout", (e) => {
+        document
+          .getElementById("livBtn")
+          .insertAdjacentHTML("afterend", "<p>Mouse is not on me!</p>");
+      });
+    </script>
+    <!--// 6. Реалізуйте програму, яка відслідковуватиме зміну розміру (ширини і висоти) вікна браузера 
+  і виводитиме на поточну сторінку при її розтязі/стисканні відповідні значення.-->
+
+    <!--// 7. На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн, у другому – назви міст. 
+      Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого списку певна країна - в правому випадаючому 
+       списку з'являлися міста цієї країни. Список міст формується динамічно, через JavaScript. Також потрібно нижче 
+       вивести назву обраної країни і місто.-->
+
+    <select name="country" id="country">
+      <option value="ger">Germany</option>
+      <option value="usa">USA</option>
+      <option value="ukr">Ukraine</option>
+    </select>
+
+    <select name="cities" id="cities"></select>
+    <p></p>
+
+    <script src="lesson7.js"></script>
+  </body>
+</html>
