@@ -17,7 +17,7 @@
 
     <!-- task  3 -->
 
-    <div id="group" style="height: 30px">
+    <div id="group">
       <button id="blueBtn">I will be blue</button>
       <button id="roseBtn">I will be rose</button>
       <button id="brownBtn" onmousedown="changeColorBrown()">
@@ -26,13 +26,8 @@
       <a href="#" id="yellowLink">I will be yellow/white</a>
     </div>
 
-     <!--  task  5  -->
-     <button id="livBtn" onclick="pressMes()">Live Button</button>
-
-
-    <!--  task  4. Реалізуйте програму, яка по натисканню на кнопку видалятиме обраний елемент випадаючого списку. 
-  Можуть видалятися всі елементи в будь-якому порядку.-->
-    <div id="exsFour">
+    <!--  task  4-->
+    <form>
       <select id="groupDel">
         <option>Sunday</option>
         <option>Monday</option>
@@ -43,31 +38,23 @@
         <option>Saturday</option>
       </select>
       <button id="delBtn">Choose and Delete</button>
-     <script>
-      //
-      const selectElement = document.querySelector("groupDel");
+    </form>
 
-      </script> 
-    </div>
+    <!--  task  5  -->
+    <button id="livBtn" onclick="pressMes()">Live Button</button>
 
-   
-    <!--// 6. Реалізуйте програму, яка відслідковуватиме зміну розміру (ширини і висоти) вікна браузера 
-  і виводитиме на поточну сторінку при її розтязі/стисканні відповідні значення.-->
+    <!--  task  6 -->
+    <div id="value"></div>
 
-    <!--// 7. На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн, у другому – назви міст. 
-      Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого списку певна країна - в правому випадаючому 
-       списку з'являлися міста цієї країни. Список міст формується динамічно, через JavaScript. Також потрібно нижче 
-       вивести назву обраної країни і місто.-->
+    <!--  task  7 -->
 
     <select name="country" id="country">
       <option value="ger">Germany</option>
       <option value="usa">USA</option>
       <option value="ukr">Ukraine</option>
     </select>
-
     <select name="cities" id="cities"></select>
-    <p></p>
-
+    <p id="prg"></p>
     <script src="lesson7.js"></script>
   </body>
 </html>
