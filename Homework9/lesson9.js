@@ -8,12 +8,12 @@ $("a[href^= 'https://']").attr("target", "_blank");
 $("h2.head").css("color", "green");
 $("h2.head").find(".inner").css("fontSize", "35px");
 
-// 3. Знайдіть теги <div>, які стоять безпосередньо після <h3> і перемістіть кожен <div>-елемент так,
-//щоб він став безпосередньо над <h3>.
-//    <h3>header1</h3>
-//    <div>text1</div>
-//    <h3>header2</h3>
-//    <div>text2</div>
+//  task  3.
+
+$("h3").each(function () {
+  nextDiv = $(this).next("div");
+  nextDiv.append($(this));
+});
 
 //  task  4.
 $(document).ready(function () {
