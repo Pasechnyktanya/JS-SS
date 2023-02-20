@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To DO List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+    
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="head">
+        <h1>My list - what will i do today?</h1>
+        <div class="cl">
+          <div class="clock"></div>
+          <div class="date"></div>
+        </div>
+        <form>
+          <input type="text" placeholder="Запиши щоб не забути )))" />
+          <button type="submit">&plus;</button>
+        </form>
+        <ul>
+          <li>
+            <input type="checkbox" onclick="taskComplete(this)" class="check" />
+            <input
+              type="text"
+              value="${task.value}"
+              class="task"
+              onfocus="getCurrentTask(this)"
+            />
+            <i class="fa fa-trash" onclick="removeTask(this)"></i>
+          </li>
+        </ul>
+      </div>
+    </div>  
+    <script src = "js.js"></script>     
+  </body>
+</html>

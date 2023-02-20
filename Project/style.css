@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  body {
+    background-color: #3785c0;
+    background-image: url(blue.jpg);
+  }
+  .container {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    height: 100vh;
+    font-family: "Dancing Script";
+  }
+  
+  .head h1 {
+    background-color: transparent;
+    color: rgb(252, 227, 4);
+    font-size: 40px;
+    padding: 10px 0;
+    text-align: center;
+    font-family: "Dancing Script";
+  }
+  .cl {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .clock,
+  .date {
+    color: rgb(252, 227, 4);
+    font-size: 25px;
+    font-weight: 600;
+    padding: 10px;
+  }
+  .head form {
+    display: flex;
+    width: 100%;
+    background-color: #565756;
+  }
+  .head form input {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    box-shadow: 20px 3px 20px rgb(174, 119, 228);
+    background-color: rgb(255, 251, 169);
+    font-size: 18px;
+    color: rgb(70, 58, 58);
+    padding: 10px;
+    width: 90%;
+  }
+  .head form button {
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(93, 22, 108);
+    font-size: 25px;
+    font-weight: 600;
+    height: 42px;
+    width: 10%;
+  }
+  .head form button:hover {
+    color: rgb(68, 16, 75);
+    background-color: rgb(255, 255, 255);
+  }
+  .head ul {
+    list-style: none;
+    color: rgb(52, 46, 46);
+    padding: 0;
+    margin: 5px 0;
+  }
+  .head ul li {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: rgba(9, 129, 198, 0.5);
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  ul li:nth-child(even) {
+    background: rgba(248, 196, 42, 0.5);
+  }
+  .check {
+    width: 0.8em;
+    height: 0.8em;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+  }
+  .check:checked {
+    background-color: #1dd2af;
+  }
+  .task {
+    font-size: 18px;
+    padding: 0 10px;
+    width: fit-content;
+    background: transparent;
+    border: none;
+    color: rgb(255, 255, 255);
+  }
+  .task:focus {
+    outline: none;
+  }
+  .head ul li i {
+    float: right;
+    cursor: pointer;
+  }
+  .head ul li i:hover {
+    color: rgb(149, 9, 119);
+  }
+  .completed {
+    color: rgba(192, 192, 192, 0.8);
+    text-decoration: line-through;
+  }
+  .head {
+    width: 60%;
+  }
+  @media (max-width: 768px) {
+    .head {
+      width: 90%;
+      font-size: 70%;
+    }
+    .clock,
+  .date {
+    color: rgb(252, 227, 4);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px;
+  }
+  }
