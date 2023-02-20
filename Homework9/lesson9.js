@@ -5,7 +5,7 @@ $("a[href^= 'https://']").attr("target", "_blank");
 
 //  task  2.
 
-$("h2.head").css("color", "green");
+$("h2.head").css("backgroundColor", "green");
 $("h2.head").find(".inner").css("fontSize", "35px");
 
 //  task  3.
