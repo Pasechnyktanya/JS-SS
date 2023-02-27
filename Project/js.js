@@ -1,17 +1,17 @@
 // спочатку локстор, бо не буде працювати
 window.onload = loadTasks; // метод завантажує завдання у приватну пам’ять сеансу.
 // в формі додати завданнЯ
-document.querySelector("form").addEventListener("submit", (e) => {
+document.querySelector("#form").addEventListener("submit", (e) => {
   e.preventDefault(); // !!!метод об'єкту Event який зупиняє стандартну подію браузера
   addTask();
 });
  // витягти завдання з лоестор і перетворити їх на масив(стандарт)
 // для кожної функції всередині створювати - інакше перезавантажується при кожному введені таски
-const tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+const tasks = JSON.parse(localStorage.getItem("tasks"));
 // перевірити, чи має localStorage якісь завдання
 // якщо ні, то повернути
 function loadTasks() {
-  const tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+  const tasks = JSON.parse(localStorage.getItem("tasks"));
   if (localStorage.getItem("tasks") === null) return;
 
   // подивитися таску і додати їх до списку
@@ -29,7 +29,7 @@ function loadTasks() {
   });
 }
 function addTask() {
-  const task = document.querySelector("form input");
+  const task = document.querySelector("#toDoTask");
   const list = document.querySelector("ul");
   // вернути якщо порожнє
   if (task.value === "") {
@@ -37,7 +37,7 @@ function addTask() {
     return false;
   }
   // первірити може вже є таке завдання
-  if (document.querySelector(`input[value="${task.value}"]`)) {
+  if (document.querySelector(`#toDoTask[value="${task.value}"]`)) {
     alert("Завдання вже є!!!");
     return false;
   }

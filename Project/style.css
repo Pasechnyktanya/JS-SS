@@ -135,7 +135,8 @@
     color: rgb(149, 9, 119);
   }
   .completed {
-    color: rgba(192, 192, 192, 0.8);
+    color: rgba(31, 29, 29, 0.8);
+    font-weight: 700;
     text-decoration: line-through;
   }
   .head {

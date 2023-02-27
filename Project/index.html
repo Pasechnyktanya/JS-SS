@@ -20,20 +20,32 @@
   </head>
   <body>
     <div class="container">
-      <div class="mylist"></div>
       <div class="head">
+        <div class="mylist">
+          <form id="list">
+            <input type="text" placeholder="enter" id="listText" />
+            <button class="addBtn" onclick="">&plus;</button>
+          </form>
+          <select id="list">
+            <option value="">My List</option>
+          </select>
+        </div>
         <h1>My list - what will i do today?</h1>
         <div class="cl">
           <div class="clock"></div>
           <div class="date"></div>
         </div>
-        <form>
-          <input type="text" placeholder="Запиши щоб не забути )))" id="toDoTask"/>
-          <button type="submit">&plus;</button>
+        <div class="new-list">
+        <h1>MY TODO</h1>
+        <form id="form">
+          <input type="text" 
+          placeholder="Запиши щоб не забути )))" 
+          id="toDoTask"/>
+          <button type="submit" class="addBtn">&plus;</button>
         </form>
-        <ul></ul>
+              
+        <ul id="list"></ul>
       </div>
-    </div>  
     <script src = "js.js"></script>    
   </body>
 </html>
