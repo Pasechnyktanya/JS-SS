@@ -20,6 +20,7 @@
   </head>
   <body>
     <div class="container">
+      <div class="mylist"></div>
       <div class="head">
         <h1>My list - what will i do today?</h1>
         <div class="cl">
@@ -27,23 +28,12 @@
           <div class="date"></div>
         </div>
         <form>
-          <input type="text" placeholder="Запиши щоб не забути )))" />
+          <input type="text" placeholder="Запиши щоб не забути )))" id="toDoTask"/>
           <button type="submit">&plus;</button>
         </form>
-        <ul>
-          <li>
-            <input type="checkbox" onclick="taskComplete(this)" class="check" />
-            <input
-              type="text"
-              value="${task.value}"
-              class="task"
-              onfocus="getCurrentTask(this)"
-            />
-            <i class="fa fa-trash" onclick="removeTask(this)"></i>
-          </li>
-        </ul>
+        <ul></ul>
       </div>
     </div>  
-    <script src = "js.js"></script>     
+    <script src = "js.js"></script>    
   </body>
 </html>

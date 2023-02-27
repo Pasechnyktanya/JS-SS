@@ -13,7 +13,7 @@ const tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
 function loadTasks() {
   const tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
   if (localStorage.getItem("tasks") === null) return;
- 
+
   // подивитися таску і додати їх до списку
   tasks.forEach((task) => {
     const list = document.querySelector("ul");
