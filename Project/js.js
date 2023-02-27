@@ -1,20 +1,67 @@
-// спочатку локстор, бо не буде працювати
-window.onload = loadTasks; // метод завантажує завдання у приватну пам’ять сеансу.
-// в формі додати завданнЯ
+
+window.onload = loadTasks; 
+
 document.querySelector("#form").addEventListener("submit", (e) => {
-  e.preventDefault(); // !!!метод об'єкту Event який зупиняє стандартну подію браузера
+  e.preventDefault(); 
   addTask();
 });
- // витягти завдання з лоестор і перетворити їх на масив(стандарт)
-// для кожної функції всередині створювати - інакше перезавантажується при кожному введені таски
-const tasks = JSON.parse(localStorage.getItem("tasks"));
-// перевірити, чи має localStorage якісь завдання
-// якщо ні, то повернути
-function loadTasks() {
+
+document.querySelector("#list").addEventListener("submit", (e) => {
+  e.preventDefault(); 
+  addList();
+});
+
+let listname = "";
+
+document.querySelector("select").addEventListener("change", (e) => {
+  listname = e.target.value;
+loadList(e.target.value);
+});
+
+
+function loadList(listname) {
   const tasks = JSON.parse(localStorage.getItem("tasks"));
   if (localStorage.getItem("tasks") === null) return;
+  const list = document.querySelector("ul");
+  list.innerHTML = "";  
+  tasks.filter(x => x.list == listname).forEach((task) => {    
+    const li = document.createElement("li");
+    li.innerHTML = `<input type="checkbox" onclick="taskComplete(this)" class="check" ${
+      task.completed ? "checked" : ""
+    }>
+     <input type="text" value="${task.task}" class="task ${
+      task.completed ? "completed" : ""
+    }" onfocus="getCurrentTask(this)" onblur="editTask(this)">
+     <i class="fa fa-trash" onclick="removeTask(this)"></i>`;
+    list.insertBefore(li, list.children[0]);
+  });
+}
+ 
+function addList() {
+  const list = document.querySelector("#listText");
+  const select = document.querySelector("select");  
+  if (list.value === "") {
+    alert("Завдання треба записати!!!");
+    return false;
+  }  
+  localStorage.setItem(
+    "lists",
+    JSON.stringify([
+      ...JSON.parse(localStorage.getItem("lists") || "[]"),
+      { name: list.value
+       },
+    ])
+  );  
+  const option = document.createElement("option");
+  option.innerText = list.value;
+  select.insertBefore(option, select.children[0]);  
+  list.value = "";
+}
+const tasks = JSON.parse(localStorage.getItem("tasks"));
 
-  // подивитися таску і додати їх до списку
+function loadTasks() {
+  const tasks = JSON.parse(localStorage.getItem("tasks"));
+  if (localStorage.getItem("tasks") === null) return;  
   tasks.forEach((task) => {
     const list = document.querySelector("ul");
     const li = document.createElement("li");
@@ -30,32 +77,27 @@ function loadTasks() {
 }
 function addTask() {
   const task = document.querySelector("#toDoTask");
-  const list = document.querySelector("ul");
-  // вернути якщо порожнє
+  const list = document.querySelector("ul");  
   if (task.value === "") {
     alert("Завдання треба записати!!!");
     return false;
-  }
-  // первірити може вже є таке завдання
+  }  
   if (document.querySelector(`#toDoTask[value="${task.value}"]`)) {
     alert("Завдання вже є!!!");
     return false;
-  }
-  // додати таску до локстор
+  } 
   localStorage.setItem(
     "tasks",
     JSON.stringify([
       ...JSON.parse(localStorage.getItem("tasks") || "[]"),
-      { task: task.value, completed: false },
+      { list: listname, task: task.value, completed: false },
     ])
-  );
-  // створити елемент списку, додати текст і додати до ul
+  ); 
   const li = document.createElement("li");
   li.innerHTML = `<input type="checkbox" onclick="taskComplete(this)" class="check">
  <input type="text" value="${task.value}" class="task" onfocus="getCurrentTask(this)" onblur="editTask(this)">
  <i class="fa fa-trash" onclick="removeTask(this)"></i>`;
-  list.insertBefore(li, list.children[0]);
-  // почистити
+  list.insertBefore(li, list.children[0]); 
   task.value = "";
 }
 function taskComplete(event) {
@@ -71,48 +113,42 @@ function removeTask(event) {
   const tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
   tasks.forEach((task) => {
     if (task.task === event.parentNode.children[1].value) {
-      tasks.splice(tasks.indexOf(task), 1); // видалити завдання(ще раз заново написати код)
+      tasks.splice(tasks.indexOf(task), 1); 
     }
   });
   localStorage.setItem("tasks", JSON.stringify(tasks));
   event.parentElement.remove();
 }
-
-let currentTask = null; // зберігати поточне завдання щоб відстежувати зміни
-function getCurrentTask(event) {
-  // отримати карент таску
+let currentTask = null; 
+function getCurrentTask(event) {  
   currentTask = event.value;
 }
 
-// редагування і збереження в локстор зі змінами
+
 function editTask(event) {
   const tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
-  if (event.value === "") {
-    // перевірка чи таска не порожня
+  if (event.value === "") {   
     alert("Завдання порожнє!!!");
     event.value = currentTask;
     return;
   }
-  tasks.forEach((task) => {
-    // перевірка чи вже записано
+  tasks.forEach((task) => {    
     if (task.task === event.value) {
       alert("Завдання вже записано!");
       event.value = currentTask;
       return;
     }
   });
-  tasks.forEach((task) => {
-    // зміна і запис
+  tasks.forEach((task) => {    
     if (task.task === currentTask) {
       task.task = event.value;
     }
   });
 
-  localStorage.setItem("tasks", JSON.stringify(tasks)); // оновлення локстор
+  localStorage.setItem("tasks", JSON.stringify(tasks)); 
 }
-
-(function () {
-  //  блок дати
+//  блок дати
+(function () {  
   const clockContainer = document.querySelector(".clock");
   function updateClock() {
     clockContainer.innerText = new Date().toLocaleTimeString();
