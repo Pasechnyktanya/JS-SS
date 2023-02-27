@@ -19,6 +19,7 @@ loadList(e.target.value);
 });
 
 
+
 function loadList(listname) {
   const tasks = JSON.parse(localStorage.getItem("tasks"));
   if (localStorage.getItem("tasks") === null) return;
@@ -58,6 +59,7 @@ function addList() {
   list.value = "";
 }
 const tasks = JSON.parse(localStorage.getItem("tasks"));
+
 
 function loadTasks() {
   const tasks = JSON.parse(localStorage.getItem("tasks"));

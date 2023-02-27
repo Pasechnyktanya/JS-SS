@@ -105,6 +105,9 @@
   ul li:nth-child(even) {
     background: rgba(248, 196, 42, 0.5);
   }
+   ul li:hover {
+    background-color: rgba(66, 31, 99, 0.7);
+   }
   .check {
     width: 0.8em;
     height: 0.8em;
