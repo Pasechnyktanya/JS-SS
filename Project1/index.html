@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To DO List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+    
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="head">
+        <div class="mylist">
+          <form id="list">
+            <input type="text" placeholder="enter" id="listText" />
+            <button class="addBtn" onclick="">&plus;</button>
+          </form>
+          <select id="list">
+            <option value="">My List</option>
+          </select>
+        </div>
+        <h1>My list - what will i do today?</h1>
+        <div class="cl">
+          <div class="clock"></div>
+          <div class="date"></div>
+        </div>
+        <div class="new-list">
+        <h1>MY TODO</h1>
+        <form id="form">
+          <input type="text" 
+          placeholder="Запиши щоб не забути )))" 
+          id="toDoTask"/>
+          <button type="submit" class="addBtn">&plus;</button>
+        </form>
+              
+        <ul id="list"></ul>
+        <div class="say__carousel .slide__container"></div>
+      </div>
+    <script src = "js.js"></script>    
+  </body>
+</html>
